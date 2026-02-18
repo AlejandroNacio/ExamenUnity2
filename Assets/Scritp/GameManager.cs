@@ -6,19 +6,23 @@ public class GameManager : MonoBehaviour
 	 public TMP_Text textoPuntos;
 
 	 public int vidas = 2;
-	 public TMP_Text textoVidas
+	 public TMP_Text textoVidas;
 
-	 public void SumarPuntos()
-	 {
-		 puntos += 1;
+	 public void SumarVida(){
+		 vidas +=1;
 		 ActualizarUI();
 	 }
 
-	 public void QuitarVida()
-	 {
-		 vidas -= 1;
-		 ActualizarUI
+	 public void SumarPuntos(){
+		 puntos +=1;
+		 ActualizarUI();
 	 }
+
+	 public void QuitarVida(){
+		 vidas -=1;
+		 ActualizarUI();
+	 }
+
 
 	 void ActualizarUI()
 	 {
@@ -28,8 +32,9 @@ public class GameManager : MonoBehaviour
 		}
 		if (textoVidas != null)
 		{
-			textoVidas.text = puntos.ToString();
+			textoVidas.text = vidas.ToString();
 		}
+
 	 }
 }
 

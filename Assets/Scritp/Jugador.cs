@@ -21,6 +21,7 @@ using UnityEngine.SceneManagement;
 		[Header("******Sonido****")]
 		 public AudioSource audioSource;
 		 public AudioClip clipZanahoria;
+		 public AudioClip clipEstrella;
 		
 		void Start()
 		{
@@ -48,7 +49,10 @@ using UnityEngine.SceneManagement;
 
 			if (collision.transform.CompareTag("Estrella"))
 			 {
-			 
+				 FindObjectOfType<GameManager>().SumarVida();
+				 Destroy(collision.gameObject);
+				 audioSource.PlayOneShot(clipEstrella);
+
 			 }
 
 			if (collision.transform.CompareTag("Casa"))

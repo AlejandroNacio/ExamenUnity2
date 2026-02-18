@@ -9,6 +9,7 @@ TagManager:
   - SueloMuerte
   - Enemigo
   - Casa
+  - Estrella
   layers:
   - Default
   - TransparentFX
