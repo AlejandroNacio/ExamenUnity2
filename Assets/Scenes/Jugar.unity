@@ -2295,7 +2295,7 @@ MonoBehaviour:
   puntos: 0
   textoPuntos: {fileID: 470201654}
   vidas: 2
-  textoVidas: {fileID: 0}
+  textoVidas: {fileID: 1696063976}
 --- !u!4 &1470138453
 Transform:
   m_ObjectHideFlags: 0
