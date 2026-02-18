@@ -17,6 +17,10 @@ using UnityEngine.SceneManagement;
 		public LayerMask layerSuelo;
 		private float radioEsferaTocaSuelo = 0.1f;
 		public Transform compruebaSuelo;
+
+		[Header("******Sonido****")]
+		 public AudioSource audioSource;
+		 public AudioClip clipZanahoria;
 		
 		void Start()
 		{
@@ -27,6 +31,31 @@ using UnityEngine.SceneManagement;
 		 {
 			 estaEnSuelo = Physics2D.OverlapCircle(compruebaSuelo.position, radioEsferaTocaSuelo, layerSuelo);
 		 }
+
+		 private void OnTriggerEnter2D(Collider2D collision)
+		{
+			 if (collision.transform.CompareTag("Zanahoria"))
+			{
+				FindObjectOfType<GameManager>().SumarPuntos();
+				Destroy(collision.gameObject);
+				audioSource.PlayOneShot(clipZanahoria);
+			}
+
+			if (collision.transform.CompareTag("SueloMuerte") || collision.transform.CompareTag("Enemigo"))
+			{
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			}
+
+			if (collision.transform.CompareTag("Estrella"))
+			 {
+			 
+			 }
+
+			if (collision.transform.CompareTag("Casa"))
+			 {
+			 SceneManager.LoadScene("Victoria");
+			 }
+		}
 
 			
 		void Update()
